@@ -28,12 +28,12 @@ const keys:Array<string>=Object.keys(obj)
 return keys;    
 }
 
-const user={
+const userr={
  name:"zara",
  age:0,
  skill:"programmer"   
 }
 let number:Array<number>=[1,2,3]
-console.log(getkeys(user));
+console.log(getkeys(userr));
 console.log(number);
 ////////////////////////////////////////////
