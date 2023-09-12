@@ -7,3 +7,5 @@ password:"fsdkjgkdj"
 const numberss=[1,2,3] as const
 console.log(numberss[2]); // in  as const array we access index array [];
 console.log(myinfo);
+
+
