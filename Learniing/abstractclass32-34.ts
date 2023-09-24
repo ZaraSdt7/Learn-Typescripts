@@ -1,3 +1,6 @@
+import { time } from "node:console"
+import { todo } from "node:test"
+
 enum STATE{
 PENDING="pending",    
 DONE="done",
@@ -44,9 +47,29 @@ GetbyID(id: number): void {
 }
 }
 class TODILIST extends ToDoRepository{
+    protected static self:TODILIST;
+    public readonly Classname:string;
+    protected  _SetID:number
     constructor(){
         super()
+        TODILIST.self = this
+        this._SetID = this.Todos.length
+        this.Classname = "todolist"
     }
+//public static GetstateID():number{
+ //eturn TODILIST.SetID   
+//}    
+get StateID():number{
+ if(this._SetID) return this._SetID
+ else return 0    
+}
+set StateID(value:number){
+if(typeof value === "number" && value>0 && value>= this.Todos.length){
+    this._SetID = value
+
+} 
+else console.log("typeof value is not NUMBER");   
+}
 public Created(todo: CreatedTodoDTO): Responses {
 const id = this.Todos.length +1
 const newtodo:Todo={
@@ -55,10 +78,14 @@ title:todo.title,
 state:todo.state
 }    
 this.Todos.push(newtodo)
+this._SetID = id
 return  {message:"created todo"} 
 
 
 }    
+public static countoftodo():number{
+    return TODILIST.self.Todos.length;
+}
 GetList(): Todo[] {
 return this.Todos    
 }
@@ -78,7 +105,11 @@ const newtd = new TODILIST();
 //console.log(newtd.Created({title:"first",state:STATE.PENDING}));
 console.log(newtd.Created({title:"second",state:STATE.DONE}));
 console.log((newtd.Created({title:"tird",state:STATE.CANCEL})));
-console.log(newtd.GetbyID(1));
-console.log(newtd.Delete(1));
-console.log(newtd.GetbyID(1));
+console.log((newtd.Created({title:"forth",state:STATE.PENDING})));
+//console.log(newtd.GetbyID(1));
+//console.log(newtd.Delete(1));
+//console.log(newtd.GetbyID(1));
+console.log(newtd.StateID);
+console.log(TODILIST.countoftodo());
+console.log(newtd.Classname);
 //console.log(newtd.GetbyID(1));
