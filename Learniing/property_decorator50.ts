@@ -86,7 +86,7 @@ function validateStringLength(minLength: number, maxLength: number) {
     };
   }
   
-  class Person {
+  class Persons {
     @validateStringLength(7,7)
     name: string;
     constructor(name: string) {
@@ -95,7 +95,7 @@ function validateStringLength(minLength: number, maxLength: number) {
   }
   
   try {
-    const person = new Person("John Doe");
+    const person = new Persons("John Doe");
   console.log(person.name); // Outputs "John Doe"
 
   } catch (error:any) {
