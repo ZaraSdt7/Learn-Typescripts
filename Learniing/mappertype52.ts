@@ -25,3 +25,19 @@ type gettes = Getter<Userdetail>
  type Requireuser = Createrequire<Edituser>
  type Readonlyuser = Createreadonly<Edituser>
  type Usertypes = Maketype<Readonlyuser>
+/////////////////////////////////////////////////////////////
+type Operation ={
+first_name:string
+age:number
+location:string
+}
+
+type Operationdetail<Types>={
+    [k in keyof Types] ?: Types[k] |undefined
+}
+type oparations = Operationdetail<Operation>
+const oparation:oparations={
+first_name:"zara",
+age:88
+}
+console.log(oparation);

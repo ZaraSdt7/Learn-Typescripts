@@ -13,7 +13,7 @@ class Course{
         return []
     }
 }
-type Title = "nodejs" | "typescript" | "javascript";
+type Title = "nodejs" | "typescript" | "javascript";  //Literal types
 type Courses = Record<Title,ICourse>;
 const Acourse :Courses ={
 nodejs:{

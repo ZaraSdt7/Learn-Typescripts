@@ -40,7 +40,7 @@ class SimpleCalculator implements Calculator{
 
 }
 const cal = new SimpleCalculator();
-console.log(cal.Add(3,6));
+console.log(cal.Add(5,6));
 console.log(cal.Subtract(5,4));
 console.log(cal.Multiply(7,3));
 console.log(cal.Divide(8,3));

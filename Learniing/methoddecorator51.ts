@@ -50,3 +50,10 @@ class Greeter{
 }
 const greet = new Greeter();
 console.log(greet.Greet("zara"));
+
+
+////////////////////////////////////
+let a = NaN
+let b = NaN
+console.log(a== b);
+console.log(a===b);
